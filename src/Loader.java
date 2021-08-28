@@ -51,5 +51,17 @@ public class Loader
             pushok.meow();
         }
         System.out.println(pushok.getStatus());
+
+        System.out.println("-------------------------");
+        Cat kotia = new Cat();
+
+        kotia.feed(150.0);
+
+        kotia.pee();
+        kotia.pee();
+        kotia.pee();
+        kotia.pee();
+
+        System.out.println(kotia.getEatenFood());
     }
 }
