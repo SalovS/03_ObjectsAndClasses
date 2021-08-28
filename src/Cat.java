@@ -9,6 +9,9 @@ public class Cat
 
     private double eatenFood;
 
+    private static int count;
+    private boolean isAlive;
+
     public Cat()
     {
         weight = 1500.0 + 3000.0 * Math.random();
@@ -16,31 +19,51 @@ public class Cat
         minWeight = 1000.0;
         maxWeight = 9000.0;
         eatenFood = 0;
-
+        count++;
+        isAlive = true;
     }
 
     public void meow()
     {
-        weight = weight - 1;
-        System.out.println("Meow");
+        if(alive()) {
+            weight = weight - 1;
+            System.out.println("Meow");
+        }
+    }
+
+    private boolean alive(){
+        if(!isAlive)
+            return false;
+        if(weight < minWeight || weight > maxWeight){
+            isAlive = false;
+            count --;
+            return false;
+        }
+        return true;
     }
 
     public void feed(Double amount)
     {
-        weight = weight + amount;
-        eatenFood =+ amount;
+        if(alive()) {
+            weight = weight + amount;
+            eatenFood = +amount;
+        }
     }
 
     public void pee(){
-        if(weight > 1000)
-            weight -= 50;
+        if(alive()) {
+            if (weight > 1000)
+                weight -= 50;
 
-        System.out.println("Buries it");
+            System.out.println("Buries it");
+        }
     }
 
     public void drink(Double amount)
     {
-        weight = weight + amount;
+        if(alive()) {
+            weight = weight + amount;
+        }
     }
 
     public Double getEatenFood(){
@@ -54,11 +77,12 @@ public class Cat
 
     public String getStatus()
     {
-        if(weight < minWeight) {
-            return "Dead";
-        }
-        else if(weight > maxWeight) {
+        if(weight > maxWeight) {
+            alive();
             return "Exploded";
+        }
+        else if(!alive()) {
+            return "Dead";
         }
         else if(weight > originWeight) {
             return "Sleeping";
@@ -66,5 +90,9 @@ public class Cat
         else {
             return "Playing";
         }
+    }
+
+    public int getCount(){
+        return count;
     }
 }

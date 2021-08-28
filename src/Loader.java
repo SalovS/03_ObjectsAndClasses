@@ -33,15 +33,19 @@ public class Loader
 
         System.out.println("-------------------------");
 
+        System.out.println(mursic.getCount());
+
         System.out.println("experiments on cats");
         System.out.println("feeding");
         System.out.println(barsic.getWeight());
         System.out.println(barsic.getStatus());
-        while(barsic.getStatus()!="Exploded"){
+        while(barsic.getStatus() != "Exploded"){
             System.out.println(barsic.getWeight());
             barsic.feed(25.0 + random.nextDouble()*25);
         }
         System.out.println(barsic.getStatus());
+
+        System.out.println(mursic.getCount());
 
         System.out.println("-------------------------");
 
@@ -51,6 +55,8 @@ public class Loader
             pushok.meow();
         }
         System.out.println(pushok.getStatus());
+
+        System.out.println(mursic.getCount());
 
         System.out.println("-------------------------");
         Cat kotia = new Cat();
@@ -63,5 +69,7 @@ public class Loader
         kotia.pee();
 
         System.out.println(kotia.getEatenFood());
+
+        System.out.println(kotia.getCount());
     }
 }
