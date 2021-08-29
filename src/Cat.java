@@ -22,6 +22,15 @@ public class Cat
         isAlive = true;
     }
 
+    public Cat(double weight)
+    {
+        this.weight = weight;
+        originWeight = weight;
+        eatenFood = 0;
+        count++;
+        isAlive = true;
+    }
+
     public void meow()
     {
         if(alive()) {

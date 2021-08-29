@@ -71,5 +71,16 @@ public class Loader
         System.out.println(kotia.getEatenFood());
 
         System.out.println(kotia.getCount());
+
+        System.out.println("-------------------------");
+        Cat masik = getKitten();
+        Cat baiun = getKitten();
+        Cat boris = getKitten();
+
+        System.out.println(kotia.getCount());
+    }
+
+    private static Cat getKitten(){
+        return new Cat(1100.0);
     }
 }
