@@ -83,4 +83,12 @@ public class Loader
     private static Cat getKitten(){
         return new Cat(1100.0);
     }
+
+    private static Cat copyCat(Cat original){
+        Cat copy = new Cat(
+                original.getWeight(),
+                original.getEatenFood(),
+                original.isAlive());
+        return copy;
+    }
 }

@@ -11,7 +11,7 @@ public class Cat
     private double eatenFood;
 
     private static int count;
-    private boolean isAlive;
+    private boolean alive;
 
     public Cat()
     {
@@ -19,7 +19,7 @@ public class Cat
         originWeight = weight;
         eatenFood = 0;
         count++;
-        isAlive = true;
+        alive = true;
     }
 
     public Cat(double weight)
@@ -28,22 +28,30 @@ public class Cat
         originWeight = weight;
         eatenFood = 0;
         count++;
-        isAlive = true;
+        alive = true;
+    }
+    public Cat(double wight, double eatenFood, boolean alive){
+        this.weight = wight;
+        this.eatenFood = eatenFood;
+        this.alive = alive;
+        originWeight = weight;
+        if(alive)
+            count++;
     }
 
     public void meow()
     {
-        if(alive()) {
+        if(isAlive()) {
             weight = weight - 1;
             System.out.println("Meow");
         }
     }
 
-    private boolean alive(){
-        if(!isAlive)
+    public boolean isAlive(){
+        if(!alive)
             return false;
         if(weight < minWeight || weight > maxWeight){
-            isAlive = false;
+            alive = false;
             count --;
             return false;
         }
@@ -52,14 +60,14 @@ public class Cat
 
     public void feed(Double amount)
     {
-        if(alive()) {
+        if(isAlive()) {
             weight = weight + amount;
             eatenFood = +amount;
         }
     }
 
     public void pee(){
-        if(alive()) {
+        if(isAlive()) {
             if (weight > 1000)
                 weight -= 50;
 
@@ -69,7 +77,7 @@ public class Cat
 
     public void drink(Double amount)
     {
-        if(alive()) {
+        if(isAlive()) {
             weight = weight + amount;
         }
     }
@@ -86,10 +94,10 @@ public class Cat
     public String getStatus()
     {
         if(weight > maxWeight) {
-            alive();
+            isAlive();
             return "Exploded";
         }
-        else if(!alive()) {
+        else if(!isAlive()) {
             return "Dead";
         }
         else if(weight > originWeight) {
