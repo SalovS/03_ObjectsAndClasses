@@ -1,0 +1,23 @@
+public enum CatsColor {
+    black,
+    blue,
+    chocolate,
+    lilac,
+    red,
+    cream,
+    blackTortie,
+    blueTortie,
+    chocolateTortie,
+    lilacTortie,
+    cinnamon,
+    fawn,
+    cinnamonTortie,
+    fawnTortie,
+    white,
+    amber,
+    lightAmber,
+    redBasedOnAmber,
+    creamBasedOnAmber,
+    amberTortie,
+    lightAmberTortie
+}
